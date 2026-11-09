@@ -1,0 +1,9 @@
+{
+  "companies": [
+    { "name": "Example Co (Greenhouse)", "ats": "greenhouse", "slug": "examplecogreenhouse" },
+    { "name": "Example Co (Lever)", "ats": "lever", "slug": "examplecolever" },
+    { "name": "Example Co (Ashby)", "ats": "ashby", "slug": "examplecoashby" },
+    { "name": "Example Co (Workable)", "ats": "workable", "slug": "examplecoworkable" },
+    { "name": "Example Co (SmartRecruiters)", "ats": "smartrecruiters", "slug": "examplecosmartrecruiters" }
+  ]
+}

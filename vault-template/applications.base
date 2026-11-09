@@ -1,0 +1,141 @@
+filters:
+  and:
+    - file.inFolder("wiki/applications")
+    - file.ext == "md"
+properties:
+  file.name:
+    displayName: Note
+  note.company:
+    displayName: Company
+  note.role:
+    displayName: Role
+  note.stage:
+    displayName: Stage
+  note.start_date:
+    displayName: Start date
+  note.tier:
+    displayName: Tier
+  note.job_type:
+    displayName: Type
+  note.location:
+    displayName: Location
+  note.work_mode:
+    displayName: Mode
+  note.salary:
+    displayName: Salary
+  note.source:
+    displayName: Source
+  note.link:
+    displayName: Posting
+  note.posted:
+    displayName: Posted
+  note.deadline:
+    displayName: Deadline
+  note.applied:
+    displayName: Applied
+  note.next_action:
+    displayName: Next action
+  note.next_date:
+    displayName: Next date
+  note.contact:
+    displayName: Contact
+  note.gap:
+    displayName: Biggest gap
+  note.visa_note:
+    displayName: Visa (info only)
+views:
+  - type: table
+    name: Inbox
+    filters:
+      and:
+        - stage == "found"
+    order:
+      - company
+      - role
+      - stage
+      - start_date
+      - tier
+      - location
+      - job_type
+      - gap
+      - source
+      - posted
+      - link
+    sort:
+      - property: tier
+        direction: ASC
+      - property: posted
+        direction: DESC
+  - type: table
+    name: Pipeline
+    filters:
+      or:
+        - stage == "applied"
+        - stage == "ongoing"
+    groupBy:
+      property: stage
+      direction: ASC
+    order:
+      - company
+      - role
+      - stage
+      - start_date
+      - tier
+      - location
+      - applied
+      - next_action
+      - next_date
+      - contact
+      - link
+    sort:
+      - property: next_date
+        direction: ASC
+  - type: table
+    name: All
+    order:
+      - company
+      - role
+      - stage
+      - start_date
+      - tier
+      - job_type
+      - location
+      - salary
+      - posted
+      - deadline
+      - gap
+      - visa_note
+      - link
+    sort:
+      - property: tier
+        direction: ASC
+  - type: table
+    name: Outcomes
+    filters:
+      or:
+        - stage == "accepted"
+        - stage == "rejected"
+        - stage == "skipped"
+    groupBy:
+      property: stage
+      direction: ASC
+    order:
+      - company
+      - role
+      - stage
+      - tier
+      - applied
+      - source
+      - gap
+    sort:
+      - property: applied
+        direction: DESC
+  - type: cards
+    name: Cards
+    order:
+      - company
+      - role
+      - stage
+      - start_date
+      - tier
+      - location
